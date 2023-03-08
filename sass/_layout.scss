@@ -533,7 +533,16 @@
         }
 
         &:hover {
-            color: $light-white;
+            color: $main-color;;
+        }
+    }
+    &__box-list-item{
+        a{
+            transition: color .3s;
+
+            &:hover{
+                color: $main-color;
+            }
         }
     }
 
@@ -545,4 +554,5 @@
     .fa-kiwi-bird {
         padding-right: .5em;
     }
+
 }
