@@ -40,7 +40,7 @@ Strona jest hostowana na [netlify](https://www.netlify.com/)
 <!-- Links -->
 ## Linki:
 
-Live: [https://progames-rudydev.netlify.app/](https://progames-rudydev.netlify.app/)
+Live: [https://tropicalparadise-rudygamesv2.netlify.app/](https://tropicalparadise-rudygamesv2.netlify.app/)
 
 Repo: [https://github.com/RudyGamesv2/paradise-project-course](https://github.com/RudyGamesv2/paradise-project-course)
 
