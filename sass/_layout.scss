@@ -1,0 +1,548 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+
+
+// =========================== burger
+
+
+.burger-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1em;
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    z-index: 1000;
+
+    &:focus {
+        outline: none;
+        border: 1px solid rgba(255, 255, 255, .5);
+        border-radius: 8px;
+    }
+
+    &:hover {
+
+        .burger-btn__bars::after,
+        .burger-btn__bars::before {
+            width: 100%;
+        }
+    }
+
+    &__box {
+        position: relative;
+        width: 40px;
+        height: 30px;
+    }
+
+    &__bars,
+    &__bars::before,
+    &__bars::after {
+        position: absolute;
+        right: 0;
+        height: 3px;
+        content: '';
+        background-color: $pure-white;
+        transition: width .3s;
+    }
+
+    &__bars {
+        width: 100%;
+
+        &::after {
+            top: 13px;
+            width: 60%;
+        }
+
+        &::before {
+            top: 27px;
+            width: 30%;
+            transition-delay: .15s;
+        }
+
+
+    }
+}
+
+// =========================== nav ===========================
+
+.nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    transform: translateX(100%);
+    transition: .5s cubic-bezier(0.65, 0.85, 0.36, 1);
+    background-image: $blue-gradient-solid;
+    z-index: 100;
+
+    &--active {
+        transform: translateX(0);
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        margin: 0.5em 0;
+        padding: 0.5em 2em;
+        font-size: 2.8rem;
+        color: $pure-white;
+        text-decoration: none;
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            transform: scaleY(0);
+            background-color: $pure-white;
+            transition: transform .3s;
+        }
+
+        &:hover:before {
+            transform: scaleY(1);
+        }
+    }
+
+    .nav-items-animation {
+        animation: navItemsAnimation 1s both; //both wszystko zaczyna się z miejsca from w animacji
+    }
+}
+
+.black-bars-color,
+.black-bars-color::after,
+.black-bars-color::before {
+    background-color: $dark;
+}
+
+@keyframes navItemsAnimation {
+    from {
+        transform: translateX(200%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+// =========================== header
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+    height: 75vh;
+    text-align: center;
+    color: $pure-white;
+
+    @include heroImages('../img/header-mini.jpg');
+    background-attachment: scroll;
+
+    &__heading {
+        font-family: 'Dancing Script', cursive;
+        font-size: 4.8rem;
+        font-weight: 300;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+    }
+
+    &__btn {
+        margin-top: 2em;
+        padding: 0.8em 1.6em;
+        background: $pure-white;
+        border: none;
+        border-radius: 8px;
+        color: $dark;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &::before {
+            background-color: $light-white;
+        }
+    }
+}
+
+// =========================== main ===========================
+//=========================== dreams section
+
+.dreams {
+    &__box {
+        display: flex;
+        flex-direction: column;
+        margin: 2em 0;
+    }
+
+    &__img {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    &__title {
+        margin-bottom: 0.5em;
+    }
+
+    &__text {
+        font-style: 1.4rem;
+    }
+}
+
+// =========================== hero-img
+
+.hero-img {
+    position: relative;
+    padding: 10em 2em;
+    @include heroImages('../img/hero-mini.jpg');
+    text-align: center;
+    color: $pure-white;
+    overflow: hidden;
+
+    &__title {
+        font-family: 'Dancing Script', cursive;
+        margin-bottom: 0.5em;
+        font-size: 4.8rem;
+    }
+
+    &__text {
+        padding: 1em 0;
+    }
+
+}
+
+//=========================== islands
+
+.islands {
+    &__card {
+        position: relative;
+        margin: 1em 0;
+        height: 450px;
+        color: $pure-white;
+        text-align: center;
+        perspective: 1000px;
+
+        &:hover {
+            .islands__card-img {
+                transform: rotateY(-180deg);
+                opacity: 0;
+            }
+
+            .islands__card-info {
+                transform: rotateY(0);
+                opacity: 1;
+            }
+        }
+
+        &-img {
+            padding: 2em;
+            height: 100%;
+            border-radius: 8px;
+            background-size: cover;
+            transition: transform 1s, opacity 1s;
+
+            &--first {
+                background-image: $light-blue-gradient, url('../img/island1.jpg');
+            }
+
+            &--second {
+                background-image: $blue-gradient, url('../img/island2.jpg');
+            }
+
+            &--third {
+                background-image: $purple-gradient, url('../img/island3.jpg');
+            }
+
+            &-title {
+                font-family: 'Dancing Script', cursive;
+                font-size: 2.8rem;
+            }
+
+            &-info {
+                position: absolute;
+                bottom: 30px;
+                right: 30px;
+                font-size: 1.8rem;
+
+                i {
+                    margin-right: 0.3rem;
+                }
+            }
+
+        }
+
+        &-info {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: $light-blue-gradient-solid;
+            border-radius: 8px;
+            opacity: 0;
+            transform: rotatateY(180deg);
+            transition: transform 1s, opacity 1s;
+
+            &-title {
+                @include islandCardStyles;
+                top: 1.2em;
+                font-family: 'Dancing Script', cursive;
+                font-size: 2.8rem;
+            }
+
+            &-list {
+                margin: 0 auto;
+                width: 70%;
+                list-style: none;
+
+                &-item {
+                    padding: 1em;
+                    font-size: 1.4rem;
+                    border-bottom: 1px solid $light-white;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            &-btn {
+                @include islandCardStyles;
+                bottom: 2em;
+                padding: 1em;
+                border-radius: 8px;
+                width: 80%;
+                border: none;
+                background-color: $green-color;
+                cursor: pointer;
+
+                &::before {
+                    background-color: $green-color-hover;
+                }
+            }
+        }
+    }
+}
+
+//=========================== offers
+
+.offers {
+    position: relative;
+
+    @include heroImages('../img/hero-offers-mini.jpg');
+    overflow: hidden;
+
+    .section-heading {
+        color: $pure-white;
+    }
+
+    &__option {
+        margin: 1em 0;
+        box-shadow: 5px 5px 10px rgba(46, 46, 46, .18);
+        background-color: $pure-white;
+        overflow: hidden;
+
+        &-img {
+            width: 100%;
+            transition: transform .3s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &-info {
+            padding: 2em;
+            background-color: $pure-white;
+            z-index: 10;
+        }
+
+        &-heading {
+            margin-bottom: 0.5em;
+            font-size: 2.4rem;
+            font-weight: 300;
+        }
+
+        &-text {
+            margin-bottom: 0.5em;
+            font-size: 1.3rem;
+            color: $dark;
+        }
+
+        &-btn {
+            margin-top: 1em;
+            padding: 0.8em;
+            width: 100%;
+            color: $pure-white;
+            background-color: $main-color;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+
+            &::before {
+                background-color: $secondary-color;
+            }
+        }
+    }
+}
+
+//=========================== reviews
+
+.reviews {
+    &__box {
+        position: relative;
+        margin: 2em;
+        padding: 2em;
+        border-radius: 8px;
+        box-shadow: 3px 3px 10px #2e2e2e2e;
+        transition: transform .3s;
+
+        &:hover {
+            transform: scale(.95);
+        }
+    }
+
+    &__box-img {
+        position: absolute;
+        top: 8%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    &__box-quote {
+        margin-bottom: 1em;
+        font-size: 3rem;
+        color: $main-color;
+    }
+
+    &__box-text {
+        margin-bottom: 1em;
+        font-size: 1.4rem;
+        color: $dark;
+    }
+}
+
+// =========================== contact
+
+.contact {
+    position: relative;
+    background-color: $light-white;
+    overflow: hidden;
+
+    .white-block-left {
+        background-color: $dark;
+    }
+
+    &__form,
+    &__form-top {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__form-label {
+        margin-bottom: 0.5em;
+        text-transform: uppercase;
+    }
+
+    &__form-input {
+        @include contactForm;
+    }
+
+    &__form-textarea {
+        @include contactForm;
+
+        max-width: 100%;
+        width: 100%;
+        min-height: 150px;
+    }
+
+    &__form-btn {
+        align-self: flex-end;
+        padding: 1em;
+        width: 100%;
+        max-width: 300px;
+        color: $pure-white;
+        border: none;
+        border-radius: 8px;
+        background-color: $main-color;
+        cursor: pointer;
+
+        &::before {
+            background-color: $secondary-color;
+        }
+    }
+
+}
+
+//=========================== footer ===========================
+
+.footer {
+    color: $pure-white;
+    background-color: $dark;
+
+    .wrapper {
+        padding: 6em 2em 2em;
+    }
+
+    &__box {
+        font-size: 1.4rem;
+    }
+
+    &__box-desktop {
+        display: none;
+    }
+
+    &__box-title {
+        margin-bottom: 1em;
+        font-size: 3rem;
+        text-transform: uppercase;
+    }
+
+    &__box-social {
+        margin: 2em 1em;
+    }
+
+    &__box-link {
+        padding: 0 0.3em;
+        font-size: 3.6rem;
+        color: $pure-white;
+        text-decoration: none;
+        transition: color .3s;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:hover {
+            color: $light-white;
+        }
+    }
+
+    &__bottom-text {
+        padding: 2em;
+        text-align: center;
+    }
+
+    .fa-kiwi-bird {
+        padding-right: .5em;
+    }
+}

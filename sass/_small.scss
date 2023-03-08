@@ -1,0 +1,62 @@
+@media(min-width: 576px) {
+    .dreams {
+        &__box {
+            flex-direction: row;
+            justify-content: space-between;
+
+            &-text {
+                width: 55%;
+
+                &--right {
+                    text-align: right;
+                }
+
+            }
+
+            &-img {
+                width: 40%;
+
+                &--right {
+                    order: 1;
+                }
+            }
+        }
+
+        &__img {
+            margin-bottom: 0;
+            max-height: 300px;
+        }
+    }
+
+    .offers {
+        &__option {
+            display: flex;
+            margin: 2em 0;
+            width: 100%;
+
+            &-img {
+                width: 50%;
+                height: auto;
+
+                &--right {
+                    order: 1;
+                }
+            }
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            &-heading {
+                margin-bottom: 0.5em;
+                font-size: 3.6rem;
+            }
+
+            &-btn {
+                padding: 1em;
+            }
+        }
+    }
+}

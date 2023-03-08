@@ -1,0 +1,87 @@
+@use 'colors' as *;
+
+@media(min-width: 992px) {
+    .burger-btn {
+        top: 50px;
+        right: 50px;
+    }
+
+    .header {
+        background-image: $blue-gradient , url('../img/header.jpg');
+
+        &__heading {
+            font-size: 10rem;
+        }
+    }
+
+    .nav {
+        &__item {
+            font-size: 4.8rem;
+        }
+    }
+
+    .dreams {
+        &__box {
+            margin: 5em 0;
+
+            &-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                margin-bottom: 2.5em;
+            }
+        }
+
+        &__title{
+            font-size: 3.6rem;
+        }
+
+        &__text{
+            font-size: 2.2rem;
+        }
+    }
+
+    .hero-img{
+        padding: 40rem 2em;
+        background-image: $blue-gradient, url('../img/hero.jpg');
+
+        &__title{
+            font-size: 7.2rem;
+        }
+
+        hr{
+            width: 60%;
+            max-width: 900px;
+        }
+    }
+
+    .islands{
+        &__card{
+            margin: 1em;
+            width: 30%;
+        }
+    }
+
+    .offers{
+        background-image: $blue-gradient, url('../img/hero-offers.jpg');
+
+        &__option{
+            &-img{
+                object-fit: cover;
+                height: 300px;
+            }
+
+            &-text{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+// @media(min-width: 1100px) {
+//     .islands {
+//         &__card {
+//             width: 30%;
+//         }
+//     }
+// }
