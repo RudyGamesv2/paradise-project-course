@@ -536,7 +536,13 @@ body {
   padding-left: 0;
 }
 .footer__box-link:hover {
-  color: #eee;
+  color: #1755e7;
+}
+.footer__box-list-item a {
+  transition: color 0.3s;
+}
+.footer__box-list-item a:hover {
+  color: #1755e7;
 }
 .footer__bottom-text {
   padding: 2em;
