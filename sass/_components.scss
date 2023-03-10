@@ -1,5 +1,8 @@
 @use 'colors' as *;
 
+.no-scroll {
+    overflow: hidden;
+}
 
 .wrapper {
     margin: 0 auto;
@@ -46,13 +49,13 @@
         z-index: -1;
     }
 
-    &:hover::before{
+    &:hover::before {
         transform: scaleX(1);
         transform-origin: left;
     }
 }
 
-.section-heading{
+.section-heading {
     position: relative;
     margin-bottom: 2em;
     font-size: 3rem;
@@ -63,7 +66,7 @@
     letter-spacing: 2px;
 }
 
-.section-padding{
+.section-padding {
     padding: 6em 2em;
 }
 
