@@ -8,23 +8,16 @@ const footerYear = document.querySelector('.footer__year');
 
 const handleNav = () => {
     nav.classList.toggle('nav--active');
-    
-    let y = window.scrollY;
 
-    if(screen.width > 768){
-        window.onscroll = () => window.scroll(0, y);
-    }
-    else{
-         document.body.classList.toggle('no-scroll')
-    }
+    document.body.classList.add('no-scroll')
 
     navBtnBars.classList.remove('black-bars-color');
 
-    if(!nav.classList.contains('nav--active')){
-        window.onscroll = "";
-        setTimeout(function(){
+    if (!nav.classList.contains('nav--active')) {
+        setTimeout(function () {
             handleObserver();
         }, 200);
+        document.body.classList.remove('no-scroll')
     }
 
     allNavItems.forEach(item => {
