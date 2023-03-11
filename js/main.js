@@ -9,8 +9,10 @@ const footerYear = document.querySelector('.footer__year');
 const handleNav = () => {
     nav.classList.toggle('nav--active');
     
+    let y = window.scrollY;
+
     if(screen.width > 768){
-        window.onscroll = () => window.scroll(0, 0);
+        window.onscroll = () => window.scroll(0, y);
     }
     else{
          document.body.classList.toggle('no-scroll')
